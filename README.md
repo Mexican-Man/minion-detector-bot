@@ -2,6 +2,8 @@
 Discord bot to detect minion pictures/videos using AutoML, and delete them. Obviously it doesn't have to be minions; it can be literally anything (with a few tiny modifications).
 Mileage may vary.
 
+Run the AutoML model through GCR or on your own machine (the container runs an HTTP server), then run this bot which will interact with it over HTTP.
+
 ### Disclaimer
 As it turns out, Google Cloud Run is monumentally cheaper than having Google host your model 24/7. For more info, [here's an article](https://medium.com/@juri.sarbach/how-to-deploy-your-automl-model-in-a-cost-effective-way-5efdd377d4d2)
 that goes over that, and how to set it up. The article is a little bit old and vague, but I ended up getting it working. In the end, I opted to run it on a computer at my home,
@@ -46,6 +48,9 @@ build your container, and optionally run it on Google Cloud Run. If you don't wa
 When setting up your GCR routine, make sure NOT to tick "HTTP/2". That broke it for me, and gave me `HTTP 5XX` errors.
 
 Download my code, input your bot token, insert the IP (internal or external, make sure to forward your ports), make any changes, and run it.
+
+> Note: the code is set up for FFMPEG to use HTTPS, which it doesn't by default. Check [this](https://askubuntu.com/a/650617) to learn how to recompile it with OpenSSL.
+> Alternatively, there's a commented out regex in the code to replace `HTTPS` with `HTTP`, but means you won't be able to get media from certain sites, including things uploaded directly to discord.
 
 ### Conclusion
 I'm pretty happy with this setup. Google's Vision web interface makes it really easy for someone to setup and training.
