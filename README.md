@@ -52,6 +52,9 @@ Download my code, input your bot token, insert the IP (internal or external, mak
 > Note: the code is set up for FFMPEG to use HTTPS, which it doesn't by default. Check [this](https://askubuntu.com/a/650617) to learn how to recompile it with OpenSSL.
 > Alternatively, there's a commented out regex in the code to replace `HTTPS` with `HTTP`, but means you won't be able to get media from certain sites, including things uploaded directly to discord.
 
+### How does it work?
+It's really simple, the bot converts uploaded/embedded images to Base64, and sends them via HTTP to our TensorFlow "server". It sends us back a confidence value, and through that we can determine if our image contains a minion. If a user uploads/embeds a video/gifv/gif/whatever, the bot uses FFMPEG to grab a few frames (this is configurable, I set it pretty low to save performance), and uses those as individual images. I programmed this in Go, but since all of the heavylifting is done by FFMPEG and TensorFlow, the performance loss wouldn't be noticable using a scripted language.
+
 ### Conclusion
 I'm pretty happy with this setup. Google's Vision web interface makes it really easy for someone to setup and training.
 I ended up having to upload lots and lots of images to train, which took a very long time, and took many iterations of testing.
