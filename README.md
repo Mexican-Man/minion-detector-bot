@@ -1,5 +1,5 @@
 # minion-detector-bot
-Discord bot to detect minion pictures/videos using AutoML, and delete them. Obviously it doesn't have to be minions; it can be literally anything (with a few tiny modifications).
+Discord bot to detect minion (from Despicable Me) pictures/videos using AutoML, and delete them. Obviously it doesn't have to be minions; it can be literally anything (with a few tiny modifications).
 Mileage may vary.
 
 Run the AutoML model through GCR or on your own machine (the container runs an HTTP server), then run this bot which will interact with it over HTTP.
