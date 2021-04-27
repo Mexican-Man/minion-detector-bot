@@ -6,7 +6,7 @@ Run the AutoML model through GCR or on your own machine (the container runs an H
 
 ### Disclaimer
 As it turns out, Google Cloud Run is monumentally cheaper than having Google host your model 24/7. For more info, [here's an article](https://medium.com/@juri.sarbach/how-to-deploy-your-automl-model-in-a-cost-effective-way-5efdd377d4d2)
-that goes over that, and how to set it up. The article is a little bit old and vague, but I ended up getting it working. In the end, I opted to run it on a computer at my home,
+that goes over that, and how to set it up. The article is a little bit old and vague, but I ended up getting it working. In the end, I opted to run it on a computer at my home (instead of running it on GCR),
 and gave it a tiny GPU to speed up video transcoding. This project isn't set up to use a GPU, but can be configured really easily (see [here](https://www.tensorflow.org/install/gpu) and [here](https://stackoverflow.com/a/44518572/9731890)).
 
 ### How to set up
