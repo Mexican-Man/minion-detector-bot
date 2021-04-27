@@ -35,7 +35,7 @@ const scoreThreshold = 0.7
 const url string = "http://localhost/v1/models/default:predict"
 
 func main() {
-	discord, err := discordgo.New("Bot " + "ODIwNDg5MTE2MTY4NzQ5MDk2.YE16CQ.2Sb7HG8gqVrqf7f3vuRUQQvpVGQ")
+	discord, err := discordgo.New("Bot " + "xxx")
 	if err != nil {
 		fmt.Println("error creating Discord session,", err)
 		return
